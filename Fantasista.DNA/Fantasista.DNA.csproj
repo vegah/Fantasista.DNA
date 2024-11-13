@@ -17,6 +17,7 @@ Human Genome Variation Society (HGVS) format   </Description>
         <RepositoryType>git</RepositoryType>
         <PackageTags>biology genetics dna hgvs vcf</PackageTags>
         <PackageIcon>icon.png</PackageIcon>
+        <PackageLicenseUrl>https://github.com/vegah/Fantasista.DNA/blob/main/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
 
     <ItemGroup>
