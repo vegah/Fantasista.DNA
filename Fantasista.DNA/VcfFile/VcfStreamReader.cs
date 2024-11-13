@@ -1,9 +1,16 @@
-﻿namespace Fantasista.DNA.VcfFile;
+﻿using System.Text;
+
+namespace Fantasista.DNA.VcfFile;
 
 public class VcfStreamReader : IDisposable
 {
     private readonly StreamReader _reader;
 
+    public VcfStreamReader(string s) : this(new MemoryStream(Encoding.UTF8.GetBytes(s)))
+    {
+        
+    }
+    
     public VcfStreamReader(Stream s)
     {
         _reader = new StreamReader(s);

@@ -32,4 +32,8 @@ Example:
         Console.WriteLine(variant.GeneSymbol); // ACADVL
 ```
 
-
+# Version history
+|Version| Description                                                              |
+|-------|--------------------------------------------------------------------------|
+|0.0.3| FASTA file format added. Readers can use string in addition to stream |
+|0.0.2| Initial version - VcfStreamReader and HgvsVariant classes added          |

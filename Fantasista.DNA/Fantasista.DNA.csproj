@@ -8,8 +8,8 @@
         <Title>Fantasista.DNA - Tooling for reading and parsing biology things</Title>
         <Authors>Fantasista Utvikling</Authors>
         <Description>Tooling for parsing different biology formats. 
-Currently supporting
-Vcf files
+Currently supporting  
+Vcf files  
 Human Genome Variation Society (HGVS) format   </Description>
         <Copyright>Fantasista Utvikling</Copyright>
         <PackageProjectUrl>https://github.com/vegah/Fantasista.DNA</PackageProjectUrl>

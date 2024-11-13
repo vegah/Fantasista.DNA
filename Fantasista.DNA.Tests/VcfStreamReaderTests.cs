@@ -10,6 +10,15 @@ public class VcfStreamReaderTests
     {
         return new MemoryStream(Encoding.UTF8.GetBytes(s));
     }
+
+    [Fact]
+    public void Constructor_with_string_instead_of_streams_work()
+    {
+        using var reader = new VcfStreamReader("##fileformat=VCFv4.3");
+        var arr = reader.Read().ToArray();
+        Assert.Equal("VCFv4.3",reader.MetaData.FileFormat);
+    }
+    
     
     [Fact]
     public void Fileformat_is_set_correctly()
@@ -31,6 +40,27 @@ public class VcfStreamReaderTests
         Assert.Equal(5,reader.MetaData.FileDate!.Value.Day);
     }
 
+    [Fact]
+    public void Filedate_is_set_correctly2()
+    {
+        using var stream = CreateStreamFromString("##fileDate=2009-08-05");
+        using var reader = new VcfStreamReader(stream);
+        var arr = reader.Read().ToArray();
+        Assert.Equal(2009,reader.MetaData.FileDate!.Value.Year);
+        Assert.Equal(8,reader.MetaData.FileDate!.Value.Month);
+        Assert.Equal(5,reader.MetaData.FileDate!.Value.Day);
+    }
+
+    [Fact]
+    public void Filedate_is_not_set_correctly2()
+    {
+        using var stream = CreateStreamFromString("##fileDate=A009-08-05");
+        using var reader = new VcfStreamReader(stream);
+        var arr = reader.Read().ToArray();
+        Assert.Null(reader.MetaData.FileDate);
+    }
+    
+    
     [Fact]
     public void Source_is_set_correctly()
     {
