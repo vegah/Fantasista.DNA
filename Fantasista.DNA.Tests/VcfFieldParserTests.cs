@@ -1,4 +1,7 @@
-﻿namespace Fantasista.DNA.Tests;
+﻿using Fantasista.DNA.VcfFile;
+using Fantasista.DNA.VcfFile.Exceptions;
+
+namespace Fantasista.DNA.Tests;
 
 public class VcfFieldParserTests
 {
@@ -35,5 +38,27 @@ public class VcfFieldParserTests
         Assert.Equal("62435964",dictionary["length"]);
     }
 
+    [Fact]
+    public void Throws_VcfFieldParserException_if_field_description_is_incorrect()
+    {
+        var str = "<ID=20 length=62435964,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species=\"Homo sapiens\",taxonomy=x>";
+        var exception = Assert.Throws<VcfFieldParserException>(() =>
+        {
+            var dictionary = VcfFieldParser.Parse(str);
+        });
+        Assert.IsType<VcfFieldParserException>(exception);
+    }
+    
+    [Fact]
+    public void Throws_VcfFieldParserException_if_field_description_is_incorrect2()
+    {
+        var str = "<ID=20,length=62435964=,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species=\"Homo sapiens\",taxonomy=x>";
+        var exception = Assert.Throws<VcfFieldParserException>(() =>
+        {
+            var dictionary = VcfFieldParser.Parse(str);
+        });
+        Assert.IsType<VcfFieldParserException>(exception);
+        
+    }
     
 }

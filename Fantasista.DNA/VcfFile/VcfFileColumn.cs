@@ -1,4 +1,4 @@
-﻿namespace Fantasista.DNA;
+﻿namespace Fantasista.DNA.VcfFile;
 
 public class VcfFileColumn(string columnName, int index)
 {

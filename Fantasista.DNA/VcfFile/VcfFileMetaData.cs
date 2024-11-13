@@ -1,8 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Fantasista.DNA;
+namespace Fantasista.DNA.VcfFile;
 
-public class VcfFileMetaData
+public partial class VcfFileMetaData
 {
     public string? FileFormat { get; private set; }
     public DateTimeOffset? FileDate { get; private set; }
@@ -14,11 +14,11 @@ public class VcfFileMetaData
 
     public void AddMetaData(string s)
     {
-        if (s.StartsWith("##fileformat")) FileFormat = s.Substring(s.IndexOf('=') + 1);
-        if (s.StartsWith("##fileDate")) FileDate = ConvertToDateTimeOffset(s.Substring(s.IndexOf('=') + 1));
-        if (s.StartsWith("##source")) Source = s.Substring(s.IndexOf('=') + 1);
-        if (s.StartsWith("##reference")) Reference = s.Substring(s.IndexOf('=') + 1);
-        if (s.StartsWith("##ID")) Id = VcfFileMetaDataId.Parse(s.Substring(s.IndexOf('=') + 1));
+        if (s.StartsWith("##fileformat")) FileFormat = s[(s.IndexOf('=') + 1)..];
+        if (s.StartsWith("##fileDate")) FileDate = ConvertToDateTimeOffset(s[(s.IndexOf('=') + 1)..]);
+        if (s.StartsWith("##source")) Source = s[(s.IndexOf('=') + 1)..];
+        if (s.StartsWith("##reference")) Reference = s[(s.IndexOf('=') + 1)..];
+        if (s.StartsWith("##ID")) Id = VcfFileMetaDataId.Parse(s[(s.IndexOf('=') + 1)..]);
         if (s.StartsWith("##INFO"))
         {
             var info = VcfFileMetaDataInfo.Parse(s.Substring(s.IndexOf('=') + 1));
@@ -26,9 +26,9 @@ public class VcfFileMetaData
         }
     }
 
-    private DateTimeOffset? ConvertToDateTimeOffset(string substring)
+    private static DateTimeOffset? ConvertToDateTimeOffset(string substring)
     {
-        var regex = new Regex(@"(\d\d\d\d)[-]?(\d\d)[-]?(\d\d)");
+        var regex = MyRegex();
         var match = regex.Match(substring);
         if (!match.Success)
         {
@@ -39,4 +39,7 @@ public class VcfFileMetaData
         var day = int.Parse(match.Groups[3].Value);
         return new DateTimeOffset(year, month, day,0,0,0, TimeSpan.Zero);
     }
+
+    [GeneratedRegex(@"(\d\d\d\d)[-]?(\d\d)[-]?(\d\d)")]
+    private static partial Regex MyRegex();
 }

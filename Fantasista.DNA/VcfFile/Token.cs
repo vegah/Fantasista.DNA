@@ -1,4 +1,4 @@
-﻿namespace Fantasista.DNA;
+﻿namespace Fantasista.DNA.VcfFile;
 
 public enum TokenType
 {

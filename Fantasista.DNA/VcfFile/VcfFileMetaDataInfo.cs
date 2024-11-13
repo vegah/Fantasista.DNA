@@ -1,16 +1,16 @@
-﻿namespace Fantasista.DNA;
+﻿namespace Fantasista.DNA.VcfFile;
 
 public class VcfFileMetaDataInfo
 {
     public static VcfFileMetaDataInfo Parse(string substring)
     {
         var parsedFields = VcfFieldParser.Parse(substring);
-        return new VcfFileMetaDataInfo()
+        return new VcfFileMetaDataInfo
         {
             Description = parsedFields.GetValueOrDefault("Description"),
             Number = parsedFields.GetValueOrDefault("Number"),
             Id = parsedFields.GetValueOrDefault("ID"),
-            Type = parsedFields.GetValueOrDefault("Type"),
+            Type = parsedFields.GetValueOrDefault("Type")
         };
     }
 

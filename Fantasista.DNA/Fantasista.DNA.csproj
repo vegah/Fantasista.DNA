@@ -4,6 +4,26 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Version>0.0.2</Version>
+        <Title>Fantasista.DNA - Tooling for reading and parsing biology things</Title>
+        <Authors>Fantasista Utvikling</Authors>
+        <Description>Tooling for parsing different biology formats. 
+Currently supporting
+Vcf files
+Human Genome Variation Society (HGVS) format   </Description>
+        <Copyright>Fantasista Utvikling</Copyright>
+        <PackageProjectUrl>https://github.com/vegah/Fantasista.DNA</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/vegah/Fantasista.DNA</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>biology genetics dna hgvs vcf</PackageTags>
+        <PackageIcon>icon.png</PackageIcon>
     </PropertyGroup>
+
+    <ItemGroup>
+      <None Update="logo.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+      </None>
+    </ItemGroup>
 
 </Project>

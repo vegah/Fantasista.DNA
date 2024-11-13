@@ -1,0 +1,43 @@
+﻿name: Update Version and Push to NuGet
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  update-version-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install xmlstarlet
+        run: sudo apt-get install -y xmlstarlet
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Get release version
+        id: get_version
+        run: echo "::set-output name=VERSION::${GITHUB_REF#refs/tags/v}"
+
+      - name: Update .csproj version
+        run: |
+          version=${{ steps.get_version.outputs.VERSION }}
+          csproj_file=Fantasista.DNA/Fantasista.DNA.csproj 
+          xmlstarlet ed -L -u '//PackageVersion' -v "$version" "$csproj_file"
+      - name: Pack
+        run: dotnet pack --no-build --configuration Release -o ./output
+
+      - name: Publish to NuGet
+        run: dotnet nuget push ./output/*.nupkg -k ${{ secrets.NUGET_SECRET }} -s https://api.nuget.org/v3/index.json
