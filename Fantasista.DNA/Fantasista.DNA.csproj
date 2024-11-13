@@ -20,11 +20,22 @@ Human Genome Variation Society (HGVS) format   </Description>
         <PackageLicenseUrl>https://github.com/vegah/Fantasista.DNA/blob/main/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <PackageReadmeFile>readme.md</PackageReadmeFile>
+    </PropertyGroup>
+    
     <ItemGroup>
-      <None Update="logo.png">
+      <None Update="icon.png">
         <Pack>True</Pack>
-        <PackagePath></PackagePath>
+        <PackagePath>\</PackagePath>
       </None>
     </ItemGroup>
+    <ItemGroup>
+        <None Update="readme.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
 
 </Project>
