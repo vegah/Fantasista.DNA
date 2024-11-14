@@ -12,7 +12,17 @@ public class HgvsVariant
     public required char OriginalBase { get; set; }         // G
     public required char NewBase { get; set; }              // A
 
-
+    /// <summary>
+    /// Parses a hgvs string to a HgvsVariant model. The process can be reversed with HgvsVariant.ToString()
+    /// </summary>
+    /// <param name="hgvsString">The string to parse</param>
+    /// <returns>A HgvsVariant model</returns>
+    /// <exception cref="FormatException">Thrown if the input is not in the correct format</exception>
+    /// <example>
+    /// var str = "NM_000018.4(ACADVL):c.62+5G>A";
+    /// var variant = HgvsVariant.Parse(str);
+    /// Console.WriteLine(variant.GeneSymbol); // ACADVL
+    /// </example>
     public static HgvsVariant Parse(string hgvsString)
     {
         var pattern = @"([\w_]+\.\d+)\((\w+)\):([a-z])\.(\d+)(?:\+(\d+))?([A-Z])>([A-Z])";
@@ -33,6 +43,10 @@ public class HgvsVariant
         };
     }
     
+    /// <summary>
+    /// Writes the model back in HgvsFormat.
+    /// </summary>
+    /// <returns>string in Hgvs format</returns>
     public override string ToString()
     {
         return $"{ReferenceSequence}({GeneSymbol}):{Type}.{Position}{(Offset.HasValue ? $"+{Offset}" : "")}{OriginalBase}>{NewBase}";

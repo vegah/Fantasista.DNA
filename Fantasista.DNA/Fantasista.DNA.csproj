@@ -36,6 +36,16 @@ Human Genome Variation Society (HGVS) format   </Description>
             <PackagePath>\</PackagePath>
         </None>
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="vsxmd" Version="1.4.5">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+    </ItemGroup>
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationMarkdown>$(MSBuildProjectDirectory)\..\docs\readme.md</DocumentationMarkdown>
+    </PropertyGroup>    
 
 
 </Project>

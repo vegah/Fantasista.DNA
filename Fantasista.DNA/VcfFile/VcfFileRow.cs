@@ -1,17 +1,40 @@
-﻿using System.Globalization;
-using Fantasista.DNA.VcfFile.Exceptions;
-
-namespace Fantasista.DNA.VcfFile;
+﻿namespace Fantasista.DNA.VcfFile;
 
 public class VcfFileRow : Dictionary<string,IVcfColumnValue>
 {
+    /// <summary>
+    /// The standard Chrom field - it is a string because some files contains characters instead of numbers here. 
+    /// </summary>
     public VcfColumnValue<string> Chrom => (VcfColumnValue<string>)this["CHROM"];
+
+    /// <summary>
+    /// The standard Pos field
+    /// </summary>
     public VcfColumnValue<int> Pos => (VcfColumnValue<int>)this["POS"];
+    /// <summary>
+    /// The standard id field
+    /// </summary>
     public IdVcfColumnValue Id => (IdVcfColumnValue)this["ID"];
+    /// <summary>
+    /// The standard Ref field
+    /// </summary>
     public VcfColumnValue<string> Ref => (VcfColumnValue<string>)this["REF"];
+    /// <summary>
+    /// The standard Alt field
+    /// </summary>
     public AltVcfColumnValue Alt => (AltVcfColumnValue)this["ALT"];
+    /// <summary>
+    /// The standard Qual field
+    /// </summary>
     public VcfColumnValue<string> Qual => (VcfColumnValue<string>)this["QUAL"];
+    /// <summary>
+    /// The standard Filter field
+    /// </summary>
     public VcfColumnValue<string> Filter => (VcfColumnValue<string>)this["FILTER"];
+    /// <summary>
+    /// The standard Info field. The info field will contain subinfo field under it's [""]
+    /// For example will Info["ALLELEID"].GetValue<int>() return the int stored in the ALLELEID field, if it exists and is an int.
+    /// </summary>
     public InfoVcfColumnValue Info => (InfoVcfColumnValue)this["INFO"];
     public void AddColumn(VcfFileColumn vcfFileColumn, string s,VcfFileMetaData metaData)
     {
@@ -45,63 +68,5 @@ public class VcfFileRow : Dictionary<string,IVcfColumnValue>
                  Add(vcfFileColumn.ColumnName,new VcfColumnValue<string>(vcfFileColumn.ColumnName,"string",s));
                  break;
         }
-    }
-}
-
-public class InfoVcfColumnValue : VcfColumnValue<Dictionary<string,IVcfColumnValue>>
-{
-    public InfoVcfColumnValue(string name, string type, string rawValue, VcfFileMetaData metaData) : base(name,type,new Dictionary<string, IVcfColumnValue>())
-    {
-        var values = rawValue.Split(';')
-            .Select(v => v.Split('='));
-        foreach (var v in values)
-        {
-            var subname = v[0];
-            var metaDataInfo = metaData.Info.FirstOrDefault(x => x.Id == subname);
-            if (metaDataInfo?.Type == "Flag")
-            {
-                Value.Add(subname, new VcfColumnValue<bool>(subname, type, true));
-                continue;                
-            }
-
-            if (v.Length < 2) throw new InfoVcfColumnValueException($"Expected key=value, but got {v}");        
-            var value = v[1];
-            if (metaDataInfo == null)
-            {
-                Value.Add(subname, new VcfColumnValue<string>(subname, type, value));
-            }
-            else if (metaDataInfo.Number=="1")
-            {
-                switch (metaDataInfo.Type)
-                {
-                    case "String":
-                        Value.Add(subname, new VcfColumnValue<string>(subname, type, value));
-                        break;
-                    case "Integer":
-                        Value.Add(subname, new VcfColumnValue<int>(subname, type, int.Parse(value,CultureInfo.InvariantCulture)));
-                        break;
-                    case "Float":
-                        Value.Add(subname, new VcfColumnValue<decimal>(subname, type, decimal.Parse(value,CultureInfo.InvariantCulture)));
-                        break;
-                }
-            }
-            else 
-            {
-                switch (metaDataInfo.Type)
-                {
-                    case "String":
-                        Value.Add(subname, new VcfColumnValue<string[]>(subname, type, value.Split(',')));
-                        break;
-                    case "Integer":
-                        Value.Add(subname, new VcfColumnValue<int[]>(subname, type, value.Split(',').Select(x=>int.Parse(x,CultureInfo.InvariantCulture)).ToArray()));
-                        break;
-                    case "Float":
-                        Value.Add(subname, new VcfColumnValue<decimal[]>(subname, type, value.Split(',').Select(x=>decimal.Parse(x,CultureInfo.InvariantCulture)).ToArray()));
-                        break;
-                }
-            }
-            
-        }
-
     }
 }
