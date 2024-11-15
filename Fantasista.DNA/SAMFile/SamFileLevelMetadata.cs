@@ -150,21 +150,21 @@ public class SamFileLevelMetadata
     {
         var regex = new Regex("(coordinate|queryname|unsorted)(:[A-Za-z0-9_-]+)+");
         var match = regex.Match(value);
-        if (!match.Success) throw new SamFileFormatException($"Invalid sub sorting value : {value}");
+        if (!match.Success) throw new SamFileFormatException($"Invalid sub sorting order : {value}");
         SubSorting = value;
     }
 
     private void SetGroupingOfAlignments(string value)
     {
         if (!Enum.TryParse(typeof(GroupingOfAlignments), value, true, out var sortingOrderOfAlignment))
-            throw new SamFileFormatException($"Invalid file version : {value}");
+            throw new SamFileFormatException($"Invalid grouping of alignment value : {value}");
         GroupingOfAlignment = (GroupingOfAlignments)sortingOrderOfAlignment;
     }
 
     private void SetSortingOrder(string value)
     {
         if (!Enum.TryParse(typeof(SortingOrderOfAlignments), value, true, out var sortingOrderOfAlignment))
-            throw new SamFileFormatException($"Invalid file version : {value}");
+            throw new SamFileFormatException($"Invalid sorting order : {value}");
         SortingOrderOfAlignment = (SortingOrderOfAlignments)sortingOrderOfAlignment;
     }
 

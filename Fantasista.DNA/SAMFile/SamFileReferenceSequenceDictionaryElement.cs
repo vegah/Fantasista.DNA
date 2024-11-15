@@ -154,7 +154,7 @@ public class SamFileReferenceSequenceDictionaryElement
     private void SetMoleculeTopology(string value)
     {
         if (!Enum.TryParse(typeof(MoleculeTopology), value, true, out var sortingOrderOfAlignment))
-            throw new SamFileFormatException($"Invalid file version : {value}");
+            throw new SamFileFormatException($"Invalid molecule topology : {value}");
         MoleculeTopology = (MoleculeTopology)sortingOrderOfAlignment;
     }
 
