@@ -1,35 +1,36 @@
 ﻿# Fantasista.DNA
-Simple helper files for reading and working with different types of DNA stuff.  
+Simple helper files for reading and working with different types of DNA stuff.
+
 ![Logo](Fantasista.DNA/icon.png)
 
 # Install
 ```bash
 $ dotnet add package Fantasista.DNA
 ```
+## Documentation
+[Examples](./examples.md)  
+[Complete API Documentation](./docs/index.md)  
 
-# Classes
-## VcfFileReader
-A class to read vcf files. For now this is just based on being able to read the ClinVar vcf file.
-This is still work in progress, but it works for most cases. If you have suggestions, please feel free to use "Issues" on github.
-Example:
-```csharp
-        using var vcfFile = File.Open("clinvar.vcf");
-        using var reader = new VcfStreamReader(file);
-        foreach (var row in reader.Read())
-        {
-            Console.WriteLine($"{row.Chrom.Value} - {row.Info.Value["ALLELEID"].GetValue<int>()}");
-        }
+## Supported file formats: 
 
-```
+| File format               | Class             | Description                                                            | 
+|---------------------------|-------------------|------------------------------------------------------------------------|
+| Variant Call Format (VCF) | VcfStreamReader   | Reads variations between reference genomes and sequences aligned to it | 
+| FASTA                     | FastaStreamReader | Reads the sequence format FASTA                                        | 
+| FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                        | 
 
+## Other supported parses
+| Type | Class        | Description                                                                                                                                  | 
+|------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| HGVS | HgvsVariant  | Human Genome Variation Society Formatting iternationally-recognized standard for the description of DNA, RNA, and protein sequence variants. |
 
-## HgvsVariant
-A simple class to parse and write Human Genome Variation Society Formatting (HGVS)
-Example:
-```csharp
-        var str = "NM_000018.4(ACADVL):c.62+5G>A";
-        var variant = HgvsVariant.Parse(str);
-        Console.WriteLine(variant.GeneSymbol); // ACADVL
-```
+# I found a bug
+Please use [Github Issues](https://github.com/vegah/Fantasista.DNA/issues), or even better, send a pull request.  
+
+# Where to find data
+Are you new to bioinformatics?  
+There are a lot of places to find data files you could use for starting in bioinformatics.  
+ * The ftp server at [ClinVar](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/)
+ * Uniprot have a [Download page](https://www.uniprot.org/help/downloads)
 
 

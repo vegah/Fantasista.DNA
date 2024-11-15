@@ -8,14 +8,14 @@
         <Title>Fantasista.DNA - Tooling for reading and parsing biology things</Title>
         <Authors>Fantasista Utvikling</Authors>
         <Description>Tooling for parsing different biology formats. 
-Currently supporting
-Vcf files
+Currently supporting  
+Vcf files  
 Human Genome Variation Society (HGVS) format   </Description>
         <Copyright>Fantasista Utvikling</Copyright>
         <PackageProjectUrl>https://github.com/vegah/Fantasista.DNA</PackageProjectUrl>
         <RepositoryUrl>https://github.com/vegah/Fantasista.DNA</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>biology genetics dna hgvs vcf</PackageTags>
+        <PackageTags>biology genetics dna hgvs vcf bioinformatics fasta fastq</PackageTags>
         <PackageIcon>icon.png</PackageIcon>
         <PackageLicenseUrl>https://github.com/vegah/Fantasista.DNA/blob/main/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
@@ -36,6 +36,19 @@ Human Genome Variation Society (HGVS) format   </Description>
             <PackagePath>\</PackagePath>
         </None>
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="vsxmd" Version="1.4.5">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+      </PackageReference>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DefaultDocumentation" Version="0.8.2" PrivateAssets="all" />
+    </ItemGroup>    
+    <PropertyGroup>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DefaultDocumentationFolder>../docs</DefaultDocumentationFolder>
+    </PropertyGroup>    
 
 
 </Project>

@@ -3,8 +3,18 @@ using Fantasista.DNA.VcfFile.Exceptions;
 
 namespace Fantasista.DNA.VcfFile;
 
+/// <summary>
+/// Class for parsing metadata fields containing information between lower than and greater than signs;  
+/// </summary>
 public static class VcfFieldParser
 {
+    /// <summary>
+    /// A parser to parse metadata field that contains more information - for example Info
+    /// It will parse fields with extra information between lower than and greater than signs
+    /// </summary>
+    /// <param name="s">The metadata excluding the ## </param>
+    /// <returns>A dictionary with the parsed fields</returns>
+    /// <exception cref="VcfFieldParserException">Thrown if the string is not parseable</exception>
     public static Dictionary<string, string> Parse(string s)
     {
         var retVal = new Dictionary<string, string>();
