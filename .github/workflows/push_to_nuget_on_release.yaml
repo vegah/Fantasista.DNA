@@ -35,7 +35,7 @@ jobs:
         run: |
           version=${{ steps.get_version.outputs.VERSION }}
           csproj_file=Fantasista.DNA/Fantasista.DNA.csproj 
-          xmlstarlet ed -L -u '//PackageVersion' -v "$version" "$csproj_file"
+          xmlstarlet ed -L -u '//Version' -v "$version" "$csproj_file"
       - name: Pack
         run: dotnet pack --no-build --configuration Release -o ./output
 
