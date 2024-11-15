@@ -16,7 +16,8 @@ $ dotnet add package Fantasista.DNA
 | FASTA                     | FastaStreamReader | Reads the sequence format FASTA                                        | 
 | FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                        | 
 
-## Other supported parses
+## Other supported parsers
 | Type | Class        | Description                                                                                                                                  | 
 |------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| HGVS | HgvsVariant  | Human Genome Variation Society Formatting iternationally-recognized standard for the description of DNA, RNA, and protein sequence variants. |  
+| HGVS | HgvsVariant  | Human Genome Variation Society Formatting iternationally-recognized standard for the description of DNA, RNA, and protein sequence variants. |
+|DNA/RNA/Protein sequence| BasicSequence | Handles simple analysis of a sequence (for example from FASTA/FASTQ files | 

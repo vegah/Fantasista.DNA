@@ -1,17 +1,43 @@
 ﻿using System.Text.RegularExpressions;
 
 namespace Fantasista.DNA.VcfFile;
-
+/// <summary>
+/// A class used to describe the metadata of a vcf file.
+/// </summary>
 public partial class VcfFileMetaData
 {
+    /// <summary>
+    /// File format - ##fileformat=VCFv4.3 will give VCFv4.3 
+    /// </summary>
     public string? FileFormat { get; private set; }
+    /// <summary>
+    /// DateTimeOffset - null if not parsable or not existing
+    /// </summary>
     public DateTimeOffset? FileDate { get; private set; }
+    /// <summary>
+    /// Source of the data - ##source=myImputationProgramV3.1
+    /// </summary>
     public string? Source { get; private set; }
+    /// <summary>
+    /// Reference - from ##reference=file:///seq/references/1000GenomesPilot-NCBI36.fasta
+    /// </summary>
     public string? Reference { get; private set; }
+    /// <summary>
+    /// Describes the ID field
+    /// </summary>
     public VcfFileMetaDataId? Id { get; private set; }
-    
+    /// <summary>
+    /// A list of descriptions of INFO fields later used.
+    /// ##INFO=&lt;ID=NS,Number=1,Type=Integer,Description="Number of Samples With Data"&gt;
+    /// ##INFO=&lt;ID=DP,Number=1,Type=Integer,Description="Total Depth"&gt;
+    /// will give two rows here.
+    /// </summary>
     public List<VcfFileMetaDataInfo> Info {get; } = new();
 
+    /// <summary>
+    /// Parses and add one line of metadata
+    /// </summary>
+    /// <param name="s">The line containing the metadata</param>
     public void AddMetaData(string s)
     {
         if (s.StartsWith("##fileformat")) FileFormat = s[(s.IndexOf('=') + 1)..];

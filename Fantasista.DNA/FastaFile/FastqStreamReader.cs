@@ -1,4 +1,7 @@
 ﻿using System.Text;
+using Fantasista.DNA.FastaFile.Exceptions;
+using Fantasista.DNA.FastaFile.Inspectors;
+using Fantasista.DNA.Sequence;
 
 namespace Fantasista.DNA.FastaFile;
 
@@ -12,10 +15,10 @@ public class FastqStreamReader
 
     private class FastqModel
     {
-        public string Description { get; set; }
-        public string RawData { get; set; }
-        public string QualityComment { get; set; }
-        public string RawQuality { get; set; }
+        public string? Description { get; set; }
+        public string? RawData { get; set; }
+        public string? QualityComment { get; set; }
+        public string? RawQuality { get; set; }
     }
     
     /// <summary>
@@ -40,11 +43,20 @@ public class FastqStreamReader
     /// Reads sequences from the file.
     /// </summary>
     /// <returns>An IEnumerable containing Sequence elements</returns>
-    public IEnumerable<Sequence> Read()
+    /// <example>
+    /// var fastqfile = File.OpenRead("file.fastq");
+    /// var fastqreader = new FastqStreamReader(fastqfile);
+    ///  foreach (var sequence in fastqreader.Read())
+    ///  {
+    ///    Console.WriteLine(sequence.RawSequence);
+    ///  }
+    /// </example>
+    public IEnumerable<BasicSequence> Read()
     {
         var currentModel = new FastqModel();
         while (_reader.ReadLine() is { } line)
         {
+            if (string.IsNullOrWhiteSpace(line)) continue;
             if (line[0] == '@')
                 currentModel.Description = line[1..];
             else if (line[0] == '+')
@@ -54,7 +66,9 @@ public class FastqStreamReader
             else if (!string.IsNullOrWhiteSpace(line))
             {
                 currentModel.RawQuality = line;
-                yield return new Sequence(currentModel.Description,currentModel.RawData,currentModel.QualityComment,currentModel.RawQuality);
+                if (currentModel.Description == null || currentModel.RawData == null || currentModel.QualityComment == null || currentModel.RawQuality == null)
+                    throw new FastqParserException("One of description, rawdata, qualitycomment or rawquality found");
+                yield return new BasicSequence(currentModel.Description,currentModel.RawData,currentModel.QualityComment,currentModel.RawQuality);
                 currentModel = new FastqModel();
             }
                 
@@ -62,5 +76,23 @@ public class FastqStreamReader
         }
     }
     
-
+    /// <summary>
+    /// Reads the data and passes it to an inspector that returns an inspected sequence
+    /// </summary>
+    /// <param name="sequenceInspector">A sequence inspector that implements ISequenceInspector</param>
+    /// <typeparam name="T">The return value of the sequence inspector</typeparam>
+    /// <returns>An IEnumerable of the SequenceInspector return value</returns>
+    /// <example>
+    /// var fastqfile = File.OpenRead("file.fastq");
+    /// var fastqreader = new FastaStreamReader(fastqfile);
+    /// var inspector = new SimpleSequenceInspector();
+    /// foreach (var sequence in fastqreader.ReadInspected(inspector).Take(5))
+    /// {
+    ///        Console.WriteLine(sequence.GuessedType);
+    /// }
+    /// </example>
+    public IEnumerable<T> ReadInspected<T>(ISequenceInspector<T> sequenceInspector) where T : BasicSequence
+    {
+        return Read().Select(sequenceInspector.InspectSequence);
+    }
 }

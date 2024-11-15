@@ -1,5 +1,8 @@
 ﻿namespace Fantasista.DNA.VcfFile;
 
+/// <summary>
+/// Contains data for one row of a vcf file
+/// </summary>
 public class VcfFileRow : Dictionary<string,IVcfColumnValue>
 {
     /// <summary>
@@ -33,9 +36,16 @@ public class VcfFileRow : Dictionary<string,IVcfColumnValue>
     public VcfColumnValue<string> Filter => (VcfColumnValue<string>)this["FILTER"];
     /// <summary>
     /// The standard Info field. The info field will contain subinfo field under it's [""]
-    /// For example will Info["ALLELEID"].GetValue<int>() return the int stored in the ALLELEID field, if it exists and is an int.
+    /// For example will Info["ALLELEID"].GetValue{int}() return the int stored in the ALLELEID field, if it exists and is an int.
     /// </summary>
     public InfoVcfColumnValue Info => (InfoVcfColumnValue)this["INFO"];
+    
+    /// <summary>
+    /// Adds a column to the row.
+    /// </summary>
+    /// <param name="vcfFileColumn">The column to add</param>
+    /// <param name="s">The value as a string</param>
+    /// <param name="metaData">The metadata for the file</param>
     public void AddColumn(VcfFileColumn vcfFileColumn, string s,VcfFileMetaData metaData)
     {
         switch (vcfFileColumn.ColumnName)

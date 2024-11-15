@@ -2,14 +2,39 @@
 
 namespace Fantasista.DNA;
 
+/// <summary>
+/// Describes a HgvsVariant (Human Genome Variation Society Formatting) 
+/// </summary>
 public class HgvsVariant
 {
+    /// <summary>
+    /// Descrbes the reference sequence - the first part of the HGVS Format- for example NM_000018.4
+    /// This is a ReferenceSequenceInfo object which contains more information
+    /// </summary>
     public required ReferenceSequenceInfo ReferenceSequence { get; set; }  // NM_000018.4
+    /// <summary>
+    /// The gene symbol. For example ACADVL
+    /// </summary>
     public required  string GeneSymbol { get; set; }         // ACADVL
+    /// <summary>
+    /// Type
+    /// </summary>
     public required  string Type { get; set; }               
+    /// <summary>
+    /// Position
+    /// </summary>
     public required  int Position { get; set; }              // 62
+    /// <summary>
+    /// The offset - for example +5
+    /// </summary>
     public int? Offset { get; set; }               // +5 (
+    /// <summary>
+    /// Original base
+    /// </summary>
     public required char OriginalBase { get; set; }         // G
+    /// <summary>
+    /// New base
+    /// </summary>
     public required char NewBase { get; set; }              // A
 
     /// <summary>

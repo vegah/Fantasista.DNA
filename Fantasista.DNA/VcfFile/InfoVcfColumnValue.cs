@@ -2,10 +2,14 @@
 using Fantasista.DNA.VcfFile.Exceptions;
 
 namespace Fantasista.DNA.VcfFile;
-
+/// <summary>
+/// A class which contains the value of a Info column, using metadata the data split up.
+/// It inherits from VcfColumnValue but the value is a dictionary.
+/// </summary>
 public class InfoVcfColumnValue : VcfColumnValue<Dictionary<string,IVcfColumnValue>>
 {
-    public InfoVcfColumnValue(string name, string type, string rawValue, VcfFileMetaData metaData) : base(name,type,new Dictionary<string, IVcfColumnValue>())
+    
+    internal InfoVcfColumnValue(string name, string type, string rawValue, VcfFileMetaData metaData) : base(name,type,new Dictionary<string, IVcfColumnValue>())
     {
         var values = rawValue.Split(';')
             .Select(v => v.Split('='));

@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using Fantasista.DNA.FastaFile.Inspectors;
+using Fantasista.DNA.Sequence;
 
 namespace Fantasista.DNA.FastaFile;
 
@@ -31,11 +33,19 @@ public class FastaStreamReader : IDisposable
     /// Reads sequences from the file.
     /// </summary>
     /// <returns>An IEnumerable containing Sequence elements</returns>
-    public IEnumerable<Sequence> Read()
+    /// <example>
+    /// var fastafile = File.OpenRead("file.fasta");
+    /// var fastareader = new FastaStreamReader(fastafile);
+    ///  foreach (var sequence in fastareader.Read())
+    ///  {
+    ///    Console.WriteLine(sequence.RawSequence);
+    ///  }
+    /// </example>
+    public IEnumerable<BasicSequence> Read()
     {
         var currentSequenceDescription = "";
         var currentSequence = new StringBuilder();
-        var allowedChars = Sequence.ValidCharsNucleicAcids.Union(Sequence.ValidAminoAcids).ToArray();
+        var allowedChars = BasicSequence.ValidCharsNucleicAcids.Union(BasicSequence.ValidAminoAcids).ToArray();
         while (_reader.ReadLine() is { } line)
         {
             if (line.Length == 0) continue;
@@ -43,8 +53,7 @@ public class FastaStreamReader : IDisposable
             {
                 if (currentSequence.Length>0)
                 {
-                    yield return new Sequence(currentSequenceDescription, currentSequence.ToString());
-                    currentSequenceDescription = "";
+                    yield return new BasicSequence(currentSequenceDescription, currentSequence.ToString());
                     currentSequence.Clear();
                 }
                 currentSequenceDescription = line[1..];
@@ -52,9 +61,32 @@ public class FastaStreamReader : IDisposable
             else if (allowedChars.Contains(line[0]))
                 currentSequence.Append(line);
         }
-        yield return new Sequence(currentSequenceDescription, currentSequence.ToString());
+        yield return new BasicSequence(currentSequenceDescription, currentSequence.ToString());
     }
 
+    /// <summary>
+    /// Reads the data and passes it to an inspector that returns an inspected sequence
+    /// </summary>
+    /// <param name="sequenceInspector">A sequence inspector that implements ISequenceInspector</param>
+    /// <typeparam name="T">The return value of the sequence inspector</typeparam>
+    /// <returns>An IEnumerable of the SequenceInspector return value</returns>
+    /// <example>
+    /// var fastafile = File.OpenRead("file.fasta");
+    /// var fastareader = new FastaStreamReader(fastafile);
+    /// var inspector = new SimpleSequenceInspector();
+    /// foreach (var sequence in fastareader.ReadInspected(inspector).Take(5))
+    /// {
+    ///        Console.WriteLine(sequence.GuessedType);
+    /// }
+    /// </example>
+    public IEnumerable<T> ReadInspected<T>(ISequenceInspector<T> sequenceInspector) where T : BasicSequence
+    {
+        return Read().Select(sequenceInspector.InspectSequence);
+    }
+
+    /// <summary>
+    /// Disposes the object and the stream 
+    /// </summary>
     public void Dispose()
     {
         _reader.Dispose();

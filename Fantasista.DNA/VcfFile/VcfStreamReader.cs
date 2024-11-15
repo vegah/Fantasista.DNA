@@ -4,6 +4,7 @@ namespace Fantasista.DNA.VcfFile;
 
 /// <summary>
 /// A class for reading Variant Call Format (VCF)
+/// Implements IDisposable.
 /// </summary>
 public class VcfStreamReader : IDisposable
 {
@@ -62,7 +63,9 @@ public class VcfStreamReader : IDisposable
         }
     }
 
-    
+    /// <summary>
+    /// Disposes the reader _and_ the stream
+    /// </summary>
     public void Dispose()
     {
         _reader.Dispose();
