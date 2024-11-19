@@ -107,7 +107,7 @@ public class SamFileReferenceSequenceDictionaryElement
     /// </param>
     public void Parse(string referenceSequenceDictionaryHeader)
     {
-        var datafields = referenceSequenceDictionaryHeader.Split(['\t', ' '], StringSplitOptions.RemoveEmptyEntries);
+        var datafields = referenceSequenceDictionaryHeader.Split(['\t'], StringSplitOptions.RemoveEmptyEntries);
         foreach (var datafield in datafields) SplitAndSetReferenceSequenceDictionary(datafield);
     }
 

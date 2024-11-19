@@ -120,7 +120,7 @@ public class SamFileLevelMetadata
     /// <param name="header">The SAM file header string to parse.</param>
     public void Parse(string header)
     {
-        var datafields = header.Split(['\t', ' '], StringSplitOptions.RemoveEmptyEntries);
+        var datafields = header.Split(['\t'], StringSplitOptions.RemoveEmptyEntries);
         foreach (var datafield in datafields) SplitAndSetMetadataField(datafield);
     }
 

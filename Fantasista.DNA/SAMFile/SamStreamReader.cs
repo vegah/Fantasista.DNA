@@ -27,7 +27,10 @@ public class SamStreamReader : IDisposable
         _reader = new StreamReader(stream);
         Metadata = new SamFileLevelMetadata();
         ReferenceSequenceDictionary = new SamFileReferenceSequenceDictionary();
+        ReadGroups = new List<SamFileReadGroup>();
     }
+
+    public List<SamFileReadGroup> ReadGroups { get; set; }
 
     /// <summary>
     ///     Gets the metadata associated with the SAM file.
@@ -83,6 +86,12 @@ public class SamStreamReader : IDisposable
             var newReferenceSequenceDictionary = new SamFileReferenceSequenceDictionaryElement();
             newReferenceSequenceDictionary.Parse(header[2..]);
             ReferenceSequenceDictionary.Add(newReferenceSequenceDictionary);
+        }
+        else if (header.StartsWith("RG"))
+        {
+            var readGroup = new SamFileReadGroup();
+            readGroup.Parse(header[2..]);
+            ReadGroups.Add(readGroup);
         }
     }
 }
