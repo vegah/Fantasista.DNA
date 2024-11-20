@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using Fantasista.DNA.SAMFile.SamFileMetadataExceptions;
+using Fantasista.DNA.SAMFile.SamFileHeaderExceptions;
 
 namespace Fantasista.DNA.SAMFile;
 

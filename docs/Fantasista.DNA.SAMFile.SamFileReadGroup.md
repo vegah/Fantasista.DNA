@@ -12,6 +12,10 @@ public class SamFileReadGroup
 
 Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.Object 'System.Object') &#129106; SamFileReadGroup
 
+| Constructors | |
+| :--- | :--- |
+| [SamFileReadGroup(int)](Fantasista.DNA.SAMFile.SamFileReadGroup.SamFileReadGroup(int).md 'Fantasista.DNA.SAMFile.SamFileReadGroup.SamFileReadGroup(int)') | Represents a read group in a SAM file, encapsulating metadata such as identifier, platform unit,<br/>description, and additional attributes relevant to sequencing data. |
+
 | Properties | |
 | :--- | :--- |
 | [BarcodeSequence](Fantasista.DNA.SAMFile.SamFileReadGroup.BarcodeSequence.md 'Fantasista.DNA.SAMFile.SamFileReadGroup.BarcodeSequence') | Gets or sets the sequence of barcodes used in the SAM file read group.<br/>This can be used to identify and track samples through the sequencing process. |

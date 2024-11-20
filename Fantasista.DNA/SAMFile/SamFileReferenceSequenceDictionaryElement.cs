@@ -1,4 +1,4 @@
-﻿using Fantasista.DNA.SAMFile.SamFileMetadataExceptions;
+﻿using Fantasista.DNA.SAMFile.SamFileHeaderExceptions;
 
 namespace Fantasista.DNA.SAMFile;
 
@@ -29,7 +29,8 @@ public class SamFileReferenceSequenceDictionaryElement
     /// <summary>
     ///     Parameterless constructor
     /// </summary>
-    public SamFileReferenceSequenceDictionaryElement()
+    /// <param name="lineNo"></param>
+    public SamFileReferenceSequenceDictionaryElement(int lineNo)
     {
         AlternateLocus = "";
         ReferenceSequenceName = "";

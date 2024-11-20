@@ -16,5 +16,5 @@ public string SubSorting { get; set; }
 
 #### Exceptions
 
-[SamFileFormatException](Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileFormatException')  
+[SamFileFormatException](Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException')  
 Thrown when an invalid sub-sorting value is set.

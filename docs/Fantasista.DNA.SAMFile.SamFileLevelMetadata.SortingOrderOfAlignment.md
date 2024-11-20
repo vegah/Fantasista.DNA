@@ -16,5 +16,5 @@ public Fantasista.DNA.SAMFile.SamFileLevelMetadata.SortingOrderOfAlignments Sort
 
 #### Exceptions
 
-[SamFileFormatException](Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileFormatException')  
+[SamFileFormatException](Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException')  
 Thrown when an invalid sorting order value is set.

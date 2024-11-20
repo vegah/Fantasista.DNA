@@ -22,6 +22,8 @@ Implements [System.IDisposable](https://docs.microsoft.com/en-us/dotnet/api/Syst
 | Properties | |
 | :--- | :--- |
 | [Metadata](Fantasista.DNA.SAMFile.SamStreamReader.Metadata.md 'Fantasista.DNA.SAMFile.SamStreamReader.Metadata') | Gets the metadata associated with the SAM file. |
+| [ProgramHeaders](Fantasista.DNA.SAMFile.SamStreamReader.ProgramHeaders.md 'Fantasista.DNA.SAMFile.SamStreamReader.ProgramHeaders') | Gets or sets the collection of program headers in the SAM file. |
+| [ReadGroups](Fantasista.DNA.SAMFile.SamStreamReader.ReadGroups.md 'Fantasista.DNA.SAMFile.SamStreamReader.ReadGroups') | Gets or sets the collection of read groups in the SAM file. |
 | [ReferenceSequenceDictionary](Fantasista.DNA.SAMFile.SamStreamReader.ReferenceSequenceDictionary.md 'Fantasista.DNA.SAMFile.SamStreamReader.ReferenceSequenceDictionary') | Gets or sets the dictionary of reference sequences in the SAM file. |
 
 | Methods | |

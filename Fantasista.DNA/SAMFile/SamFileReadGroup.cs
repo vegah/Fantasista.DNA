@@ -1,5 +1,5 @@
 ﻿using System.Text.RegularExpressions;
-using Fantasista.DNA.SAMFile.SamFileMetadataExceptions;
+using Fantasista.DNA.SAMFile.SamFileHeaderExceptions;
 
 namespace Fantasista.DNA.SAMFile;
 
@@ -7,7 +7,7 @@ namespace Fantasista.DNA.SAMFile;
 ///     Represents a read group in a SAM file, encapsulating metadata such as identifier, platform unit,
 ///     description, and additional attributes relevant to sequencing data.
 /// </summary>
-public class SamFileReadGroup
+public class SamFileReadGroup(int lineNo)
 {
     /// <summary>
     ///     Represents the platform/technology type used in sequencing.
@@ -158,10 +158,10 @@ public class SamFileReadGroup
     public void Parse(string line)
     {
         var datafields = line.Split(['\t'], StringSplitOptions.RemoveEmptyEntries);
-        foreach (var datafield in datafields) SplitAndSetReferenceSequenceDictionary(datafield);
+        foreach (var datafield in datafields) SplitAndSetReferenceReadGroup(datafield);
     }
 
-    private void SplitAndSetReferenceSequenceDictionary(string datafield)
+    private void SplitAndSetReferenceReadGroup(string datafield)
     {
         var fieldParts = datafield.Split(':', 2);
         var tag = fieldParts[0];

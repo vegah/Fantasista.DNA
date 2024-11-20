@@ -13,7 +13,7 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 | Constructors | |
 | :--- | :--- |
-| [SamFileReferenceSequenceDictionaryElement()](Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement.SamFileReferenceSequenceDictionaryElement().md 'Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement.SamFileReferenceSequenceDictionaryElement()') | Parameterless constructor |
+| [SamFileReferenceSequenceDictionaryElement(int)](Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement.SamFileReferenceSequenceDictionaryElement(int).md 'Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement.SamFileReferenceSequenceDictionaryElement(int)') | Parameterless constructor |
 
 | Properties | |
 | :--- | :--- |
