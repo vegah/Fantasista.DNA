@@ -1,7 +1,15 @@
 ﻿# Fantasista.DNA
-Simple helper files for reading and working with different types of DNA stuff.
+A library for reading, handling and working with bioinformatic files and formats.  
+The library is work in progress, and it is mainly created to be able to work with this stuff myself.  
 
 ![Logo](Fantasista.DNA/icon.png)
+
+# Roadmap
+The first versions will prioritize reading different kinds of file formats. See list below over supported files.
+
+Next versions:
+ *  Reading Cram files
+ *  Reading Bam files
 
 # Install
 ```bash
@@ -18,7 +26,7 @@ $ dotnet add package Fantasista.DNA
 | Variant Call Format (VCF) | VcfStreamReader   | Reads variations between reference genomes and sequences aligned to it | 
 | FASTA                     | FastaStreamReader | Reads the sequence format FASTA                                        | 
 | FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                        | 
-
+|SAM | SamStreamReader | Reads SAM Files |
 ## Other supported parses
 | Type | Class        | Description                                                                                                                                  | 
 |------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------|

@@ -9,7 +9,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Fantasista.DNA\Fantasista.DNA.csproj" />
+        <ProjectReference Include="..\Fantasista.DNA\Fantasista.DNA.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="toy.sam">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
 </Project>
