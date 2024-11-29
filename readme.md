@@ -11,8 +11,6 @@ Next versions:
  *  Reading Cram files
  *  Reading Bam files
 
-
-
 # Install
 ```bash
 $ dotnet add package Fantasista.DNA

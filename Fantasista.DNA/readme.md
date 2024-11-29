@@ -15,7 +15,7 @@ The first versions will prioritize reading different kinds of file formats. See 
 
 Next versions:
 
-* Reading Sam Files
+* More tooling for alignments in sam files
 * Reading Cram files
 * Reading Bam files
 
@@ -31,6 +31,7 @@ Next versions:
 | Variant Call Format (VCF) | VcfStreamReader   | Reads variations between reference genomes and sequences aligned to it | 
 | FASTA                     | FastaStreamReader | Reads the sequence format FASTA                                        | 
 | FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                        | 
+| SAM                       | SamStreamReader   | Reads SAM Files                                                        |
 
 ## Other supported parses
 

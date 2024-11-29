@@ -16,7 +16,7 @@
         <PackageProjectUrl>https://github.com/vegah/Fantasista.DNA</PackageProjectUrl>
         <RepositoryUrl>https://github.com/vegah/Fantasista.DNA</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>biology genetics dna hgvs vcf bioinformatics fasta fastq</PackageTags>
+        <PackageTags>biology genetics dna hgvs vcf sam bioinformatics fasta fastq</PackageTags>
         <PackageIcon>icon.png</PackageIcon>
         <PackageLicenseUrl>https://github.com/vegah/Fantasista.DNA/blob/main/LICENSE</PackageLicenseUrl>
     </PropertyGroup>
