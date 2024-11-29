@@ -1,4 +1,4 @@
-﻿namespace Fantasista.DNA.SAMFile.SamFileMetadataExceptions;
+﻿namespace Fantasista.DNA.SAMFile.Exceptions;
 
 /// <summary>
 ///     Represents a dictionary of reference sequences within a SAM file.

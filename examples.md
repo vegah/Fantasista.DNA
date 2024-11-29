@@ -1,4 +1,14 @@
-﻿# How to read a FASTA file
+﻿# How to read a SAM file
+```csharp
+using var samfile = File.OpenRead("toy.sam");
+using var samreader = new SamStreamReader(samfile);
+foreach (var row in samreader.Read())
+{
+    Console.WriteLine(row.CIGAR.Parts[0].Operator);
+    Console.WriteLine(row.ReadSequence);
+}
+```
+# How to read a FASTA file
 ## Read the sequence
 ```csharp
 // Read 5 lines from fasta file

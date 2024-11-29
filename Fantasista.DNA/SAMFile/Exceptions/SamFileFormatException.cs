@@ -1,4 +1,4 @@
-﻿namespace Fantasista.DNA.SAMFile.SamFileHeaderExceptions;
+﻿namespace Fantasista.DNA.SAMFile.Exceptions;
 
 /// <summary>
 ///     Represents errors that occur when processing a SAM (Sequence Alignment/Map) file due to format issues.

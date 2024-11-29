@@ -16,5 +16,5 @@ public Fantasista.DNA.SAMFile.SamFileLevelMetadata.GroupingOfAlignments Grouping
 
 #### Exceptions
 
-[SamFileFormatException](Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException')  
+[SamFileFormatException](Fantasista.DNA.SAMFile.Exceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.Exceptions.SamFileFormatException')  
 Thrown when an invalid grouping value is set.

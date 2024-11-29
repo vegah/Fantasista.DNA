@@ -15,5 +15,5 @@ public string Version { get; set; }
 
 #### Exceptions
 
-[SamFileFormatException](Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.SamFileHeaderExceptions.SamFileFormatException')  
+[SamFileFormatException](Fantasista.DNA.SAMFile.Exceptions.SamFileFormatException.md 'Fantasista.DNA.SAMFile.Exceptions.SamFileFormatException')  
 Thrown when an invalid version format is set.

@@ -1,11 +1,26 @@
 ﻿# Fantasista.DNA
-Simple helper files for reading and working with different types of DNA stuff.
+
+A library for reading, handling and working with bioinformatic files and formats.  
+The library is work in progress, and it is mainly created to be able to work with this stuff myself.
 
 # Install
+
 ```bash
 $ dotnet add package Fantasista.DNA
 ```
-## Documentation
+
+# Roadmap
+
+The first versions will prioritize reading different kinds of file formats. See list below over supported files.
+
+Next versions:
+
+* Reading Sam Files
+* Reading Cram files
+* Reading Bam files
+
+# Documentation
+
 [Examples](https://github.com/vegah/Fantasista.DNA/blob/main/examples.md)  
 [Complete API Documentation](https://github.com/vegah/Fantasista.DNA/blob/main/docs/index.md)
 
@@ -18,16 +33,22 @@ $ dotnet add package Fantasista.DNA
 | FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                        | 
 
 ## Other supported parses
-| Type | Class        | Description                                                                                                                                  | 
-|------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| HGVS | HgvsVariant  | Human Genome Variation Society Formatting iternationally-recognized standard for the description of DNA, RNA, and protein sequence variants. |
+
+| Type | Class       | Description                                                                                                                                  | 
+|------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| HGVS | HgvsVariant | Human Genome Variation Society Formatting iternationally-recognized standard for the description of DNA, RNA, and protein sequence variants. |
 
 # I found a bug
-Please use [Github Issues](https://github.com/vegah/Fantasista.DNA/issues), or even better, send a pull request.
+
+Please use [Github Issues](https://github.com/vegah/Fantasista.DNA/issues), or even better, fix it yourself and create a
+pull request.
+If you leave a bug issue, please add as much information as possible to make it easy to recreate the bug.
 
 # Where to find data
+
 Are you new to bioinformatics?  
 There are a lot of places to find data files you could use for starting in bioinformatics.
+
 * The ftp server at [ClinVar](https://ftp.ncbi.nlm.nih.gov/pub/clinvar/)
 * Uniprot have a [Download page](https://www.uniprot.org/help/downloads)
 

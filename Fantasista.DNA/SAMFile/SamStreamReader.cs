@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using Fantasista.DNA.SAMFile.SamFileMetadataExceptions;
+using Fantasista.DNA.SAMFile.Exceptions;
 
 namespace Fantasista.DNA.SAMFile;
 

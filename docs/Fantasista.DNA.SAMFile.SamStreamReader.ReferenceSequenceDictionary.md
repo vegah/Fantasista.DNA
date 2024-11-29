@@ -6,11 +6,11 @@
 Gets or sets the dictionary of reference sequences in the SAM file.
 
 ```csharp
-public Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary ReferenceSequenceDictionary { get; set; }
+public Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary ReferenceSequenceDictionary { get; set; }
 ```
 
 #### Property Value
-[SamFileReferenceSequenceDictionary](Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary.md 'Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary')
+[SamFileReferenceSequenceDictionary](Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary.md 'Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary')
 
 ### Remarks
 The ReferenceSequenceDictionary property provides access to the collection of reference sequences  

@@ -1,5 +1,5 @@
 #### [Fantasista.DNA](index.md 'index')
-### [Fantasista.DNA.SAMFile.SamFileMetadataExceptions](Fantasista.DNA.SAMFile.SamFileMetadataExceptions.md 'Fantasista.DNA.SAMFile.SamFileMetadataExceptions').[SamFileReferenceSequenceDictionary](Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary.md 'Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary')
+### [Fantasista.DNA.SAMFile.Exceptions](Fantasista.DNA.SAMFile.Exceptions.md 'Fantasista.DNA.SAMFile.Exceptions').[SamFileReferenceSequenceDictionary](Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary.md 'Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary')
 
 ## SamFileReferenceSequenceDictionary.Add(SamFileReferenceSequenceDictionaryElement) Method
 
@@ -10,7 +10,7 @@ public void Add(Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement
 ```
 #### Parameters
 
-<a name='Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary.Add(Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement).element'></a>
+<a name='Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary.Add(Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement).element'></a>
 
 `element` [SamFileReferenceSequenceDictionaryElement](Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement.md 'Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement')
 

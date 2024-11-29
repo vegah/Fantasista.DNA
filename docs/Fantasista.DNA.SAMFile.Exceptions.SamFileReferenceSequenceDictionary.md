@@ -1,5 +1,5 @@
 #### [Fantasista.DNA](index.md 'index')
-### [Fantasista.DNA.SAMFile.SamFileMetadataExceptions](Fantasista.DNA.SAMFile.SamFileMetadataExceptions.md 'Fantasista.DNA.SAMFile.SamFileMetadataExceptions')
+### [Fantasista.DNA.SAMFile.Exceptions](Fantasista.DNA.SAMFile.Exceptions.md 'Fantasista.DNA.SAMFile.Exceptions')
 
 ## SamFileReferenceSequenceDictionary Class
 
@@ -13,4 +13,4 @@ Inheritance [System.Object](https://docs.microsoft.com/en-us/dotnet/api/System.O
 
 | Methods | |
 | :--- | :--- |
-| [Add(SamFileReferenceSequenceDictionaryElement)](Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary.Add(Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement).md 'Fantasista.DNA.SAMFile.SamFileMetadataExceptions.SamFileReferenceSequenceDictionary.Add(Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement)') | Adds a new element to the SamFileReferenceSequenceDictionary. |
+| [Add(SamFileReferenceSequenceDictionaryElement)](Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary.Add(Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement).md 'Fantasista.DNA.SAMFile.Exceptions.SamFileReferenceSequenceDictionary.Add(Fantasista.DNA.SAMFile.SamFileReferenceSequenceDictionaryElement)') | Adds a new element to the SamFileReferenceSequenceDictionary. |

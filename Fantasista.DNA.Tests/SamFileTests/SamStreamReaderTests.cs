@@ -1,5 +1,5 @@
 ﻿using Fantasista.DNA.SAMFile;
-using Fantasista.DNA.SAMFile.SamFileHeaderExceptions;
+using Fantasista.DNA.SAMFile.Exceptions;
 
 namespace Fantasista.DNA.Tests.SamFileTests;
 
