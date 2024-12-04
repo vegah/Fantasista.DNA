@@ -4,6 +4,8 @@
 
 | Classes | |
 | :--- | :--- |
+| [BamFileMissingHeaderException](Fantasista.DNA.SAMFile.BamFileMissingHeaderException.md 'Fantasista.DNA.SAMFile.BamFileMissingHeaderException') | Represents an exception that is thrown when a BAM file is missing the required header. |
+| [BamStreamReader](Fantasista.DNA.SAMFile.BamStreamReader.md 'Fantasista.DNA.SAMFile.BamStreamReader') | A class responsible for reading BAM (Binary Alignment/Map) file format data from a stream. |
 | [RawSequenceAlignment](Fantasista.DNA.SAMFile.RawSequenceAlignment.md 'Fantasista.DNA.SAMFile.RawSequenceAlignment') | Represents a raw sequence alignment entry parsed from a SAM file. |
 | [SamFileCigarPart](Fantasista.DNA.SAMFile.SamFileCigarPart.md 'Fantasista.DNA.SAMFile.SamFileCigarPart') | Represents a part of a CIGAR string which is used to describe the alignment<br/>of a DNA sequence. A CIGAR string is composed of multiple parts, each<br/>defining an operation and the number of nucleotides it affects. |
 | [SamFileLevelMetadata](Fantasista.DNA.SAMFile.SamFileLevelMetadata.md 'Fantasista.DNA.SAMFile.SamFileLevelMetadata') | Represents metadata at the file level for a SAM (Sequence Alignment/Map) file.<br/>Provides properties and methods to parse and handle file-level metadata such as version and sorting order of<br/>alignments. |
