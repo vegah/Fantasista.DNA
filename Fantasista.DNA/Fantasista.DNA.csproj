@@ -10,13 +10,17 @@
         <Description>Tooling for parsing different biology formats.
             Currently supporting
             Vcf files
+            Sam files
+            Gff3 files
+            Fasta files
+            Fastq files
             Human Genome Variation Society (HGVS) format
         </Description>
         <Copyright>Fantasista Utvikling</Copyright>
         <PackageProjectUrl>https://github.com/vegah/Fantasista.DNA</PackageProjectUrl>
         <RepositoryUrl>https://github.com/vegah/Fantasista.DNA</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>biology genetics dna hgvs vcf sam bioinformatics fasta fastq</PackageTags>
+        <PackageTags>biology genetics dna hgvs vcf sam gff3 bioinformatics fasta fastq</PackageTags>
         <PackageIcon>icon.png</PackageIcon>
         <PackageLicenseUrl>https://github.com/vegah/Fantasista.DNA/blob/main/LICENSE</PackageLicenseUrl>
     </PropertyGroup>

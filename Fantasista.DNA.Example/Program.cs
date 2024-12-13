@@ -3,6 +3,7 @@
 using System.Diagnostics;
 using Fantasista.DNA;
 using Fantasista.DNA.FastaFile;
+using Fantasista.DNA.GtfFile;
 using Fantasista.DNA.SAMFile;
 using Fantasista.DNA.Sequence.Inspectors;
 using Fantasista.DNA.VcfFile;
@@ -53,3 +54,11 @@ foreach (var row in samreader.Read())
 
 samwatch.Stop();
 Console.WriteLine($"Reading sam file took {samwatch.ElapsedMilliseconds}ms");
+
+using var gff3File = File.OpenRead("G:\\genes\\gencode.v47lift37.annotation.gff3\\gencode.v47lift37.annotation.gff3");
+using var gff3Reader = new Gff3StreamReader(gff3File);
+var gff3watch = Stopwatch.StartNew();
+foreach (var row in gff3Reader.Read()) Console.WriteLine(row.SequenceId);
+
+gff3watch.Stop();
+Console.WriteLine($"Reading gff3 file took {gff3watch.ElapsedMilliseconds}ms");
