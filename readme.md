@@ -21,12 +21,14 @@ $ dotnet add package Fantasista.DNA
 
 ## Supported file formats: 
 
-| File format               | Class             | Description                                                            | 
-|---------------------------|-------------------|------------------------------------------------------------------------|
+| File format               | Class             | Description                                                           | 
+|---------------------------|-------------------|-----------------------------------------------------------------------|
 | Variant Call Format (VCF) | VcfStreamReader   | Reads variations between reference genomes and sequences aligned to it | 
-| FASTA                     | FastaStreamReader | Reads the sequence format FASTA                                        | 
-| FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                        | 
-|SAM | SamStreamReader | Reads SAM Files |
+| FASTA                     | FastaStreamReader | Reads the sequence format FASTA                                       | 
+| FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                       | 
+| SAM                       | SamStreamReader   | Reads SAM Files                                                       |
+| Gff3                      | Gff3StreamReader  | Reads Gff3 Files                                                      |
+
 ## Other supported parses
 | Type | Class        | Description                                                                                                                                  | 
 |------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------|

@@ -1,4 +1,11 @@
-﻿# How to read a SAM file
+﻿# How to read a GFF3 file
+```csharp
+using var gff3File = File.OpenRead("gencode.v47lift37.annotation.gff3\\gencode.v47lift37.annotation.gff3");
+using var gff3Reader = new Gff3StreamReader(gff3File);
+foreach (var row in gff3Reader.Read()) 
+    Console.WriteLine(row.SequenceId);
+```
+# How to read a SAM file
 ```csharp
 using var samfile = File.OpenRead("toy.sam");
 using var samreader = new SamStreamReader(samfile);

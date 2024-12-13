@@ -32,6 +32,7 @@ Next versions:
 | FASTA                     | FastaStreamReader | Reads the sequence format FASTA                                        | 
 | FASTQ                     | FastqStreamReader | Reads the sequence format FASTQ                                        | 
 | SAM                       | SamStreamReader   | Reads SAM Files                                                        |
+| Gff3                      | Gff3StreamReader  | Reads Gff3 Files                                                       |
 
 ## Other supported parses
 
